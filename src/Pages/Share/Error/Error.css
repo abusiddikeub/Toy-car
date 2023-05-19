@@ -1,0 +1,22 @@
+.error{
+               width: 100%;
+               margin-top:300px;
+              height: 100%;
+              padding: 30px;
+              transform: translateY(-60%);
+              color:#343434;
+               min-width: 100vh; 
+              background-image: linear-gradient(125deg,#6a89cc,#b8e994);
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+              
+}
+.error h1{
+              font-size: 160px;
+              margin-left: 100px;
+              font-weight: 900;
+              letter-spacing: 20px;
+              background: url(/public/banner.jpg) center no-repeat;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;  
+
+}
