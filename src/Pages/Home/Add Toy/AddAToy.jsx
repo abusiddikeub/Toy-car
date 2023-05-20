@@ -2,9 +2,8 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Router/Provider/AuthProvider";
 import CreatableSelect from "react-select/creatable";
-import './AddAToy.css'
-import Swal from 'sweetalert2'
-
+import "./AddAToy.css";
+import Swal from "sweetalert2";
 
 const AddAToy = () => {
   const { user } = useContext(AuthContext);
@@ -16,47 +15,40 @@ const AddAToy = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-   
+    console.log(data);
 
-    console.log(data)
-     
-Swal.fire(
-               'Add Toy ',
-               'Successfully done !!!!',
-               'question'
-             )
-              // option select pawar jonno ata dite hba ------------
+    Swal.fire("Add Toy ", "Successfully done !!!!", "question");
+    // option select pawar jonno ata dite hba ------------
     data.skills = selectedOption;
 
-               fetch('http://localhost:5000/toys',{
-                              method:'POST',
-                              headers:{
-                              'content-type':'application/json'
-                              },
-                              body:JSON.stringify(data)
-               })
-             .then((res)=>res.json())
-             .then(result =>{
-               console.log(result)
-             })
-
+    fetch("https://assignment-11-seven.vercel.app/postToys", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+      console.log(data);
   };
 
-    // option select file -------
-    const options = [
-               { value: "Toy Aeroplane", label: "Toy Aeroplane" },
-               { value: "Doll", label: "Doll" },
-               { value: "Teddy Bear", label: "Teddy Bear" },
-               { value: " Rubber Duck", label: " Rubber Duck" },
-               { value: "Toy Car", label: "Toy Car" },
-               { value: "Toy Train", label: "Toy Train" },
-               { value: "Sand Bucket", label: "Sand Bucket" },
-               { value: " Drums", label: " Drums" },
-
-               { value: " Rocking Horse", label: " Rocking Horse" },
-               { value: "Yo-Yo", label: "Yo-Yo" },
-               { value: "Building Block", label: "Building Block" },
-             ];
+  // option select file -------
+  const options = [
+    { value: "Toy Aeroplane", label: "Toy Aeroplane" },
+    { value: "Doll", label: "Doll" },
+    { value: "Teddy Bear", label: "Teddy Bear" },
+    { value: " Rubber Duck", label: " Rubber Duck" },
+    { value: "Toy Car", label: "Toy Car" },
+    { value: "Toy Train", label: "Toy Train" },
+    { value: "Sand Bucket", label: "Sand Bucket" },
+    { value: " Drums", label: " Drums" },
+    { value: " Rocking Horse", label: " Rocking Horse" },
+    { value: "Yo-Yo", label: "Yo-Yo" },
+    { value: "Building Block", label: "Building Block" },
+  ];
 
   return (
     <div>
@@ -70,7 +62,7 @@ Swal.fire(
           {...register("image")}
           placeholder="image link"
           type="url"
-//           defaultValue="https://media.istockphoto.com/id/687165852/photo/toys.jpg?s=612x612&w=0&k=20&c=_BdsQLnut3pVc3RYgodD3Xiy7gCCM3K8HX3GdODLRt0="
+          //           defaultValue="https://media.istockphoto.com/id/687165852/photo/toys.jpg?s=612x612&w=0&k=20&c=_BdsQLnut3pVc3RYgodD3Xiy7gCCM3K8HX3GdODLRt0="
         />
 
         <input
@@ -83,10 +75,7 @@ Swal.fire(
           className="text-input"
           {...register("title", { required: true })}
           placeholder="Seller Name"
-          value={user?.displayName
-
-          }
-
+          value={user?.displayName}
         />
 
         <input
@@ -100,16 +89,15 @@ Swal.fire(
           className="text-input"
           {...register("price", { required: true })}
           placeholder="$ price"
-//           type="number"
+          //           type="number"
         />
 
         <input
           className="text-input"
           {...register("Rating", { required: true })}
           placeholder="Rating"
-
         />
-        
+
         <input
           className="text-input"
           {...register("deadline")}
@@ -124,13 +112,13 @@ Swal.fire(
           placeholder="your email"
           type="email"
         />
-  
-            <select className="text-input" {...register("status")}>
-              <option value="subCategory">Sub-Category</option>
-              <option value="toyTrain">Toy Train</option>
-              <option value="toyCar">Toy Car</option>
-              <option value="toytrack">Toy Track</option>
-            </select>
+
+        <select className="text-input" {...register("status")}>
+          <option value="subCategory">Sub-Category</option>
+          <option value="toyTrain">Toy Train</option>
+          <option value="toyCar">Toy Car</option>
+          <option value="toytrack">Toy Track</option>
+        </select>
 
         {/* select korer por dite hba ----- */}
         <CreatableSelect
@@ -140,16 +128,20 @@ Swal.fire(
           options={options}
           isMulti
         />
-       {/*  */}
+        {/*  */}
 
         <input
           className="text-input "
           {...register("description")}
-          placeholder= "Details description"
+          placeholder="Details description"
         />
         <br />
 
-        <input className="mt-3 bg-purple-800 text-white p-2 w-1/2 hover:bg-orange-600 rounded-xl" value="Submit " type="submit" />
+        <input
+          className="mt-3 bg-purple-800 text-white p-2 w-1/2 hover:bg-orange-600 rounded-xl"
+          value="Submit "
+          type="submit"
+        />
       </form>
     </div>
   );

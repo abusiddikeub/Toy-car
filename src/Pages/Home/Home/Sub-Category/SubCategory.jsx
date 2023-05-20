@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const SubCategory = ({ toy }) => {
   const {user } = useContext(AuthContext);           
-const {image,title, price,Rating,status} = toy
+const {image,title, price,Rating,status} = toy || {}
  
 
 
