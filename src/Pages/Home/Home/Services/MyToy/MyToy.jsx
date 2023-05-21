@@ -39,12 +39,7 @@ const MyToy = () => {
           console.log(data);
           if (data.deletedCount > 0) {
             Swal.fire({
-//               title: "Are you sure?",
-//               text: "You won't be able to revert this!",
-//               icon: "warning",
-//               showCancelButton: true,
-//               confirmButtonColor: "#3085d6",
-//               cancelButtonColor: "#d33",
+
               confirmButtonText: "Are you sure?!",
             }).then((result) => {
               if (result.isConfirmed) {
@@ -57,6 +52,32 @@ const MyToy = () => {
         });
     }
   };
+
+  // handleUpdate
+
+// const handleUpdate =id=>{
+//   console.log(id);
+//   fetch(`https://assignment-11-seven.vercel.app/myToys/${id}`,{
+//     method:'PATCH',
+//     headers:{
+//       'content-type':'application/json'
+//     },
+//     body:JSON.stringify({status:'confirm'})
+//   })
+//   .then(res=>res.json())
+//   .then(data=>{
+//     console.log(data);
+//     if(data.modifiedCount>0){
+//       const remaining = myToys.filter(myToy => myToy._id !==id )
+//       const updateToy = myToys.find(myToy => myToy._id ===id)
+//       updateToy.status = 'confirm'
+//       const NewToy = [update,...remaining]
+//       setMyToys(NewToy);
+//     }
+//   })
+// }
+
+
   return (
     <div>
       <div className="overflow-x-auto w-full">

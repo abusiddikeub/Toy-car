@@ -40,7 +40,13 @@ const handleLogOut = () =>{
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src={profile} />
+             {
+              user && <div>
+
+     <img src={user.photoURL} />
+
+              </div>
+             }
             </div>
           </label>
           <ul
@@ -53,6 +59,9 @@ const handleLogOut = () =>{
             </li>
             <li>
               <Link to='/home'><a>Home</a></Link>
+            </li>
+            <li>
+              <Link to='/singlePage'><a>Single Page</a></Link>
             </li>
             <li>
               <Link to='/allToys'><a>All Toys</a></Link>

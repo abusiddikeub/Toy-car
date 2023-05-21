@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const SubCategory = ({ toy }) => {
   const {user } = useContext(AuthContext);           
-const {image,title, price,Rating,status} = toy || {}
+const {_id,image,title, price,Rating,status} = toy || {}
  
 
 
@@ -31,7 +31,7 @@ const {image,title, price,Rating,status} = toy || {}
   
  
     <div className="card-actions justify-end">
-     <Link to='/details'> <button className="btn btn-primary">Details</button></Link>
+     <Link to={`/toyDetails/${_id}`}> <button className="btn btn-primary">Details</button></Link>
     </div>
   </div>
 </div>

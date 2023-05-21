@@ -13,14 +13,14 @@ const [success,setSuccess] = useState('')
 
   const auth = getAuth(app);
   console.log(auth);
-  const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
   
     const handleGoogleSignIn = () => {
-      signInWithPopup(auth, provider)
+      signInWithPopup(auth,googleProvider)
         .then((result) => {
-          const loggedInUser = result.user;
-          console.log(loggedInUser);
-          setUser(loggedInUser);
+          const loggedUser = result.user;
+          console.log(loggedUser);
+          setUser(loggedUser);
         })
         .catch((error) => {
         

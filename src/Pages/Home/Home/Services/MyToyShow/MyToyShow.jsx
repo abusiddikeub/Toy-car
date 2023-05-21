@@ -1,8 +1,15 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import UpdateToy from "../../updateToy/UpdateToy";
 
-const MyToyShow = ({ myToy,handleDeleteButton }) => {
-  const { _id,image, Quantity, title, status, price, deadline,postedBy } = myToy;
+const MyToyShow = ({ myToy,handleDeleteButton}) => {
+  const { _id,image, Quantity, title, status, price, deadline,postedBy,description } = myToy;
 
+
+    const handleUpdate =(data) =>{
+      console.log(data)
+    }
+  
   return (
 
       <tr>
@@ -31,7 +38,32 @@ const MyToyShow = ({ myToy,handleDeleteButton }) => {
         <td>{price}</td>
         <td>{postedBy}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">Update</button>
+          {/* <button onClick={()=>handleUpdate(_id)} className="btn btn-ghost btn-xs">Update</button> */}
+{/* modal */}
+
+{/* The button to open modal */}
+<label htmlFor="my-modal-6" className="btn">open modal</label>
+
+{/* Put this part before </body> tag */}
+<input type="checkbox" id="my-modal-6" className="modal-toggle" />
+<div className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box ">
+    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
+    <div className="modal-action">
+      <label htmlFor="my-modal-6" className="btn">Yay!</label>
+    </div>
+  </div>
+</div>
+
+<button 
+className="btn btn-success">Update</button>
+{/* <UpdateToy>
+show={modalSow}
+onHide ={() =>setModalShow(false)}
+  myToy ={myToy}
+  handleUpdate={handleUpdate}
+</UpdateToy> */}
+
         </th>
         <th>
         <button  

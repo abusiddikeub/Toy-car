@@ -11,6 +11,7 @@ import MyToys from "../Pages/Home/Home/AllToy/AllToys";
 import AllToys from "../Pages/Home/Home/AllToy/AllToys";
 import ToyDetails from "../Pages/Home/Home/ToyDetails/ToyDetails";
 import MyToy from "../Pages/Home/Home/Services/MyToy/MyToy";
+import SignlePage from "../Pages/Home/SInglePage/SignlePage";
 
 const router = createBrowserRouter([
   {
@@ -43,9 +44,17 @@ const router = createBrowserRouter([
      element:<PrivateRouter><AllToys></AllToys></PrivateRouter>
      },
      {
-      path:"toyDetails/:id",
+      path:'toyDetails',
       element:<ToyDetails></ToyDetails>
-      // loader:({params})=>fetch(`https://assignment-11-seven.vercel.app/AllToys/${params.id}`)
+     },
+     {
+      path:"toyDetails/:id",
+      element:<ToyDetails></ToyDetails>,
+      loader:({params})=>fetch(`https://assignment-11-seven.vercel.app/allToys/${params.id}`)
+     },
+     {
+path:'singlePage',
+element:<SignlePage></SignlePage>
      },
      {
      path:'/login',

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Router/Provider/AuthProvider";
-import AllToyShow from "../AllToysShow/AllToyShow";
+
 
 const AllToys = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +13,8 @@ const AllToys = () => {
         setToys(data);
       });
   }, [user]);
+
+
 
   return (
     <div>
@@ -41,16 +43,10 @@ const AllToys = () => {
                 <td>{toy.price}</td>
                 <td>{toy.Rating}</td>
                 <td>
-                  {/* <button variant="primary" onClick={() => setModalShow(true)}>
-                    Edit
-                  </button> */}
+                 
                   <button className="btn btn-outline btn-success">Edit</button>
-                  {/* <UpdateJobModal
-                    show={modalShow}
-                    onHide={() => setModalShow(false)}
-                    job={job}
-                    handleJobUpdate={handleJobUpdate}
-                  /> */}
+                 
+               
                 </td>
                 <td>
                   {" "}
