@@ -6,15 +6,16 @@ const SignlePage = () => {
                const [toys, setToys] = useState([]);
              
                useEffect(() => {
-                 fetch(`https://assignment-11-seven.vercel.app/AllToys/${user?.email}`)
+                 fetch(`https://assignment-11-seven.vercel.app/allToys`)
                    .then((res) => res.json())
                    .then((data) => {
-                     console.log(data);
+                              const [toys, setToys] = useState([]);
+                              (data);
                    });
                }, [user]);
                return (
                               <div>
-          
+         {toys.length}
                               </div>
                );
 };

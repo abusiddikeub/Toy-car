@@ -55,27 +55,30 @@ const MyToy = () => {
 
   // handleUpdate
 
-// const handleUpdate =id=>{
-//   console.log(id);
-//   fetch(`https://assignment-11-seven.vercel.app/myToys/${id}`,{
-//     method:'PATCH',
-//     headers:{
-//       'content-type':'application/json'
-//     },
-//     body:JSON.stringify({status:'confirm'})
-//   })
-//   .then(res=>res.json())
-//   .then(data=>{
-//     console.log(data);
-//     if(data.modifiedCount>0){
-//       const remaining = myToys.filter(myToy => myToy._id !==id )
-//       const updateToy = myToys.find(myToy => myToy._id ===id)
-//       updateToy.status = 'confirm'
-//       const NewToy = [update,...remaining]
-//       setMyToys(NewToy);
-//     }
-//   })
-// }
+const handleUpdate =id=>{
+  console.log(id);
+  fetch(`https://assignment-11-seven.vercel.app/myToys/${id}`,{
+    method:'PATCH',
+    headers:{
+      'content-type':'application/json'
+    },
+    body:JSON.stringify({status:'confirm'})
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data);
+    if(data.modifiedCount>0){
+      const remaining = myToys.filter(myToy => myToy._id !==id )
+      const updateToy = myToys.find(myToy => myToy._id ===id)
+      updateToy.status = 'confirm'
+      updateToy.price = 'confirm'
+      updateToy.Quantity = 'confirm'
+
+      const NewToy = [update,...remaining]
+      setMyToys(NewToy);
+    }
+  })
+}
 
 
   return (
@@ -104,6 +107,7 @@ const MyToy = () => {
               <MyToyShow
                 myToy={myToy}
                 handleDeleteButton={handleDeleteButton}
+                handleUpdate={handleUpdate}
               ></MyToyShow>
             ))}
           </tbody>

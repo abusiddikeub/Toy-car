@@ -20,10 +20,7 @@ const handleLogOut = () =>{
 
   return (
     <div className="navbar bg-base-100 position-fixed sticky top-0 z-30 w-full px-2 py-4 bg-white sm:px-4 shadow-xl">
-      {/* <div className="flex-1 w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-        <img src={profile} alt="" className=" mask-circle" />
-        <a className="btn btn-ghost normal-case text-xl"></a>
-      </div> */}
+    
       <div className="avatar flex-1 mt-4 mb-4">
   <div className="w-16 rounded-full ring mt-1 mx -auto ring-primary ring-offset-base-100 ring-offset-2">
     <img src={profile} />
