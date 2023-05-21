@@ -1,21 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Router/Provider/AuthProvider';
+import { useLoaderData, useParams } from 'react-router-dom';
+import SinglePageShow from '../../singlePageShow/SinglePageShow';
 
 const SignlePage = () => {
-               const { user } = useContext(AuthContext);
-               const [toys, setToys] = useState([]);
+              
+               const singlePage = useLoaderData();
+             console.log(singlePage);
              
-               useEffect(() => {
-                 fetch(`https://assignment-11-seven.vercel.app/allToys`)
-                   .then((res) => res.json())
-                   .then((data) => {
-                              const [toys, setToys] = useState([]);
-                              (data);
-                   });
-               }, [user]);
                return (
                               <div>
-         {toys.length}
+      
+         <div className='grid grid-cols-2 p-9'>
+          {singlePage.map(page=><SinglePageShow
+          page={page}
+          ></SinglePageShow>)}
+         </div>
                               </div>
                );
 };

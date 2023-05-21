@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../../Router/Provider/AuthProvider";
 import MyToyShow from "../MyToyShow/MyToyShow";
 import Swal from "sweetalert2";
+import SignlePage from "../../../SInglePage/SignlePage";
 
 const MyToy = () => {
   const { user } = useContext(AuthContext);
@@ -15,6 +16,7 @@ const MyToy = () => {
         setMyToys(data);
       });
   }, [user]);
+
 
   const handleDeleteButton = (id) => {
     const proceed = Swal.fire({
@@ -108,10 +110,13 @@ const handleUpdate =id=>{
                 myToy={myToy}
                 handleDeleteButton={handleDeleteButton}
                 handleUpdate={handleUpdate}
+               
               ></MyToyShow>
+  
             ))}
           </tbody>
         </table>
+       
       </div>
     </div>
   );
