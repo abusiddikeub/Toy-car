@@ -11,7 +11,7 @@ const SignlePage = () => {
                return (
                               <div>
       
-         <div className='grid grid-cols-2 p-9'>
+         <div className='grid grid-cols-3 p-9'>
           {singlePage.map(page=><SinglePageShow
           page={page}
           ></SinglePageShow>)}
