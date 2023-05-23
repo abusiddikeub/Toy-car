@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import profile from '../../../assets/image/logo.jpg'
 import { Link } from "react-router-dom";
+import profile from '../../../assets/image/logo.jpg'
 import { AuthContext } from "../../../Router/Provider/AuthProvider";
 import './Navber.css'
 
@@ -37,7 +37,7 @@ const handleLogOut = () =>{
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-     
+            <img src={profile}/>
             </div>
           </label>
           <ul
