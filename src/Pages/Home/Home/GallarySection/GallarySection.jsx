@@ -105,7 +105,7 @@ const GallarySection = () => {
     <p className="font-semibold"> Upload date:December 07, 2009
 </p>
     <div className="card-actions justify-end">
-    <div className="badge badge-outline">Available Products</div>
+    <div className="badge badge-outline bg-purple-600">Available Products</div>
     </div>
   </div>
 </div>  </div>       
