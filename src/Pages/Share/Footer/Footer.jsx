@@ -7,7 +7,7 @@ const Footer = () => {
       <div>
         <img src={footer} alt="" />
         <p>
-         Kiddy Zone Industries Ltd.
+        Toy Car Industries Ltd.
           <br />
           Providing reliable tech since 1992,
         </p>
