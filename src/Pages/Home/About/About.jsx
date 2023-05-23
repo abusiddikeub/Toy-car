@@ -38,7 +38,7 @@ const About = () => {
 </div>
     <div>
       <h1 className="text-5xl font-bold text-purple-500">Welcome to Our Car Shop</h1>
-      <p className="py-6">There are many variations of passages of Lorem ipsum available, but <br /> the majority have suffered alteration in some injected. <br />Our goal is for our car database to contain all data about all cars. </p>
+      <p className="py-6">There are many variations of passages of Lorem ipsum available, but <br /> the majority have suffered alteration in some injected. <br />Our goal is for our car database to contain all data about all cars. <br />If you only use Car.info as a private person we offer our service free of charge. </p>
       <button class="btn btn-outline btn-secondary py-5 px-7">Shop Now </button>
     </div>
   </div>
