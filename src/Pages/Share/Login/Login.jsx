@@ -7,34 +7,37 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../../firebase/firebase.config";
 
 const Login = () => {
+
+  const {signIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  const from = location.state?.from?.pathname || '/home'
+
   const [user, setUser] = useState(null);
-  const [error,setError] = useState('');
-const [success,setSuccess] = useState('')
+
 
   const auth = getAuth(app);
   console.log(auth);
-  const googleProvider = new GoogleAuthProvider();
+  const provider = new GoogleAuthProvider();
   
-    const handleGoogleSignIn = () => {
-      signInWithPopup(auth,googleProvider)
-        .then((result) => {
-          const loggedUser = result.user;
-          console.log(loggedUser);
-          setUser(loggedUser);
-        })
-        .catch((error) => {
-        
-          console.log(error.message)
-        });
-    };
-
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setUser(loggedInUser);
+      })
+      .catch((error) => {
+        console.log("error", error.message);
+      });
+  };
 
 // use provider ------------
-const {signIn} = useContext(AuthContext);
-const navigate = useNavigate();
-const location = useLocation();
-console.log(location);
-const from = location.state?.from?.pathname || '/home'
+
+
+
+const [success,setSuccess] = useState('')
 
 
 const handleLogin =(event) =>{
@@ -43,25 +46,25 @@ const handleLogin =(event) =>{
                const email = form.email.value;
                const password = form.password.value;
                console.log(email,password);
-               signIn(email,password)
 
+               signIn(email,password)
                .then(result =>{
                    const signIn = result.user;
                    console.log(signIn);
                    setError('')
+                   event.target.reset();
+                   navigate(from,{replace:true})
                    Swal.fire({
                     title: 'success!',
                     text: 'You have successfully Login',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
-                  //  -----navigation 
-                   navigate(from,{replace:true})
-                   form.reset();
+
                })
                .catch(error =>{
                               console.log(error);
-                              setError(error)
+              
                })
 
 }
@@ -121,7 +124,7 @@ const handleLogin =(event) =>{
             <div className="mx-auto">
 
             <button className="btn btn-outline btn-success" onClick={handleGoogleSignIn}> <FaGoogle className="text-red-600 me-2"/> Google Login</button>
-
+   
             </div>
           </div>
         </div>
