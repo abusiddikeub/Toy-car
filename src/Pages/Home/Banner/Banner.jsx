@@ -14,7 +14,7 @@ const Banner = () => {
           <p className="mb-5">
           Official Marvel the place in toys Gallery 
           </p>
-          <button className="btn btn-primary">View Gallary</button>
+          <button className="btn btn-primary">View Gallery</button>
         </div>
       </div>
       </div>
